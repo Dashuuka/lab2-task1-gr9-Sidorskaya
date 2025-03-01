@@ -7,3 +7,4 @@ run = ["sh", "-c", "gcc -o labrabota3-1 /home/runner/lab2-task1-gr9-Sidorskaya/s
 
 [nix]
 channel = "stable-24_05"
+

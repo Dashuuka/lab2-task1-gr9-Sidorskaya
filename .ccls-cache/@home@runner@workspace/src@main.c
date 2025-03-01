@@ -26,6 +26,37 @@ void sort_by_digit_sum(int *arr, int n) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("Hello World\n");
-  printf("Goodbye World\n");
+		if (argc != 2) {
+				printf("Size: %s <size_array>\n", argv[0]);
+				return 1;
+		}
+
+		int n = atoi(argv[1]);
+		if (n <= 0) {
+				printf("Error: n<=0.\n");
+				return 1;
+		}
+
+		int *arr = malloc(n * sizeof(int));
+		if (!arr) {
+				perror("Error with memory");
+				return 1;
+		}
+
+		srand(time(NULL));
+		printf("Array (%d elements):\n", n);
+		for (int i = 0; i < n; i++) {
+				arr[i] = rand() % 10000;
+				printf("%d ", arr[i]);
+		}
+
+		sort_by_digit_sum(arr, n);
+
+		printf("\n\nAfter sort:\n");
+		for (int i = 0; i < n; i++) {
+				printf("%d (Sum: %d)\n", arr[i], sum_of_digits(arr[i]));
+		}
+
+		free(arr);
+		return 0;
 }
